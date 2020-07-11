@@ -1,13 +1,16 @@
 package com.Exam.FacebookPhoto;
+import com.Exam.FacebookPhoto.Model.Metadata;
 import com.Exam.FacebookPhoto.service.DownloadFromURL;
+import com.Exam.FacebookPhoto.service.StringParser;
 
 public class Main {
 
 	public static void main(String[] args) {
-		String url = "https://graph.facebook.com/v7.0/3120253634680310?fields=photos&access_token=EAAH51tUzLoUBAGHLvCtdXIkoJZAIpYsZCk7L34GO5OT1l3mi75zFwQd9zEUMfO3aJgw7qICgqFbT0MbdG5eL0WBJfI7SjA1a4Rg3dmZBL1j5UZByxdZBAYpJZChr1t0QLxnNlk9uSZACNUeUkuDrZCtgHAWvV0zN6ORpShU3C43TllDRQKBGikUTaZC3cs9rbVpCnED2ZCvGgozLKF7Qex2ZCUBgGSp3SpEc7IY45vnIGFjpQZDZD";
+		String url = "https://graph.facebook.com/v7.0/3120253634680310?fields=photos&access_token=EAAH51tUzLoUBAFlGWQHdhM3dn9CYAzb647FpvTAPiHuOT5sDG8i6Eyol2f9ZBLGSbxhbNUPKTlxopprXKLwr1dslgP7wwZBXrI4VCGRJtRXl55y3GLa1E4ciCFz9QZAiSqeRAfh2WJ9vlZCXktPIMYq9OQHi433Bhhm2TDBIZBesPdRfmIhxhZBXlX9J0WLpMnzwZByDsGMsndWG5ch0SeEQuuRD69ZCsXSfL8kh4PAXggZDZD";
 		DownloadFromURL json = new DownloadFromURL();
 		String test1=json.JsonToString(url);
 		System.out.println(test1);
+		Metadata s1= StringParser.StringToPhotos(test1);
 	}
 
 }
