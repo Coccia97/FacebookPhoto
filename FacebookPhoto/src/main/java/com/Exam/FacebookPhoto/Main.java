@@ -1,7 +1,11 @@
 package com.Exam.FacebookPhoto;
 
+import com.Exam.FacebookPhoto.Model.Metadata;
+import com.Exam.FacebookPhoto.Model.PhotoData;
 import com.Exam.FacebookPhoto.service.DownloadFromURL;
 import com.Exam.FacebookPhoto.service.StringParser;
+
+import java.util.ArrayList;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,12 +14,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Main {
 
 	public static void main(String[] args) {
-		String url = "https://graph.facebook.com/v7.0/3120253634680310?fields=photos&access_token=EAAH51tUzLoUBAPfYMWFniR6JXjXZAd0ljtVbe78AtJJFhn1hFrLcm5R33q8pMwbH8OVo3qR3ORlNsz0t0nlA84ZAjBbvfOL0U6ZBGqrBQxx1sf3BZA3BMd4r77pc3Auy9eTfCvLAmoZAX3X021K9qG8Qbq4QlMJaYlerek9misXZBgNQ87aZAzb7n1oOrlYWXYkIdIdd1ijOWDXqOE0yVEtWTvvvlZBRz4Voj23O5UEtPgZDZD";
+		String url = "https://graph.facebook.com/v7.0/me?fields=photos&access_token=EAAIlMonHq4wBAJgmPVtOeEt3qvxTyulDNHqWAxOaFcLjaUomDZA442w0BGZBFjMb3EYelpTjEy1HD3djYKe4La1ag6RjvYfcgsI2ZBGEzXFBmLnWiD9mVSiMjTUbOlZBleOVpv0j5BIXnZAXug74xihQ3XxZAaNQZA6eZAZCpvCLreY20NN06zqydWNvTGZAwIjhAIwlamDbGxFyWW6TvSHnpBnfFPcjx2NMIIZAsybxQJfNgZDZD";
 		DownloadFromURL json = new DownloadFromURL();
 		String test1 = json.JsonToString(url);
 		StringParser.StringToPhotos(test1);
+		ArrayList<PhotoData> s = StringParser.DataConverter();
+		System.out.println(" ");
+		
 
-		SpringApplication.run(Main.class, args);
+		//SpringApplication.run(Main.class, args);
 
 	}
 
