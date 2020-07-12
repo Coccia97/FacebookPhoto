@@ -1,8 +1,8 @@
 package com.Exam.FacebookPhoto.Model;
 
 public class Metadata {
-	Photos photos;
-	String id;
+	public Photos photos;
+	public String id;
 	
 	
 	

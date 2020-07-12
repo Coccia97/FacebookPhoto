@@ -3,8 +3,8 @@ package com.Exam.FacebookPhoto.Model;
 import java.util.ArrayList;
 
 public class Photos {
-	ArrayList<Data> data;
-	Paging paging;
+	public ArrayList<Data> data;
+	public Paging paging;
 
 	public ArrayList<Data> getData() {
 		return data;
