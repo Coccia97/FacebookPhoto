@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.Exam.FacebookPhoto.Model.Data;
 import com.Exam.FacebookPhoto.service.StringParser;
 
-
 import java.util.ArrayList;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,9 +19,15 @@ public class Controller {
 	   * 
 	   * 
 			*/
-	@GetMapping("/allphoto")
-	public ArrayList<Data> ExampleMethod(@RequestParam(name="param1", defaultValue="world") String param1) {
-			return StringParser.getArrayData();
+	@RequestMapping(value = "allphoto", method=RequestMethod.GET)
+	public ArrayList<String> getallphoto(){
+		
+		return StringParser.getPhotoDataString(StringParser.DataConverter());
+	}
+			
+	
+	}
+	
 
-}
-}
+
+

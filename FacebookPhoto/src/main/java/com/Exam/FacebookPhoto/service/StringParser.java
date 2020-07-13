@@ -20,6 +20,10 @@ public class StringParser {
 
 	private static Metadata metadata = new Metadata();
 	private static ArrayList<PhotoData> photodata = new ArrayList<PhotoData>();
+	private static ArrayList<String> photodatastring = new ArrayList<String>();
+	
+	
+	
 
 	public static Metadata StringToPhotos(String data) {
 
@@ -30,7 +34,8 @@ public class StringParser {
 	}
 
 	public static ArrayList<PhotoData> DataConverter() {
-
+		photodata.clear();
+		
 		for (int i = 0; i < metadata.photos.data.size(); i++) {
 
 			metadata.photos.data.get(i).getCreated_time();
@@ -53,18 +58,31 @@ public class StringParser {
 
 			photodata.add(pd);
 
-			// photodata.get(i).setMonth(new SimpleDateFormat("MMM").format(c.getTime()));
-			// photodata.get(i).setYear(c.get(Calendar.YEAR));
-			// photodata.get(i).setId(metadata.photos.data.get(i).getId());
-			// System.out.println(new SimpleDateFormat("MMM").format(c.getTime()));
+		
 
 		}
 		return photodata;
 	}
+	
+	public static ArrayList<String> getPhotoDataString(ArrayList<PhotoData> s) {
+		ArrayList<String> photodatastring1 =new ArrayList<String>();
+		photodatastring1.clear();
+		
+		for (int i = 0; i < s.size(); i++) { 
+		photodatastring1.add("foto con id  " + s.get(i).getId() +" caricata il " + s.get(i).getDay() + " " +s.get(i).getMonth() + " "+   s.get(i).getYear());
+		
+		}
+		int n= photodatastring1.size()-1 ;
+		photodatastring1.add("hai caricato un totale di " +(n+1)+ " foto dal " + s.get(n).getDay() + " " +s.get(n).getMonth() + " "+ s.get(n).getYear()+ " ad oggi ");
+		return photodatastring1;
+	}
+	
+	
 
 	public static ArrayList<Data> getArrayData() {
 
 		return metadata.photos.data;
 	}
+	
 
 }
