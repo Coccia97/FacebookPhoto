@@ -8,7 +8,7 @@ public class Paging {
 	}
 
 	public void setCursorsObject(Cursors cursorsObject) {
-		this.cursors = cursors;
+	
 	}
 
 }

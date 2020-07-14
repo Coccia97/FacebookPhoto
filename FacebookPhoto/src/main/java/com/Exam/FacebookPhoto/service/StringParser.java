@@ -3,6 +3,7 @@ package com.Exam.FacebookPhoto.service;
 import com.google.gson.Gson;
 
 import com.Exam.FacebookPhoto.Model.Metadata;
+import com.Exam.FacebookPhoto.util.Stats.*;
 import com.Exam.FacebookPhoto.Model.PhotoData;
 
 import java.text.DateFormat;
@@ -20,7 +21,7 @@ public class StringParser {
 
 	private static Metadata metadata = new Metadata();
 	private static ArrayList<PhotoData> photodata = new ArrayList<PhotoData>();
-	private static ArrayList<String> photodatastring = new ArrayList<String>();
+	
 	
 	
 	
@@ -83,6 +84,26 @@ public class StringParser {
 
 		return metadata.photos.data;
 	}
+	
+	
+	public static ArrayList<String> getStats(ArrayList<PhotoData> pd){
+		ArrayList<String> results = new ArrayList<String>();
+		
+		try {
+			results.add("Totale foto caricate  : " + Stats.TotPhoto(pd) );
+			results.add("Media foto per GIORNO : " + Stats.MediaPhotoDays(pd));
+			results.add("Media foto per MESE   : " + Stats.MediaPhotoMonth(pd));
+			results.add("Media foto per ANNO   : " + Stats.MediaPhotoYear(pd));
+			results.add("Il mese in cui hai caricato più foto è   : " + Stats.FavoriteMonth(pd));
+			results.add("L'anno in cui hai caricato più foto è   : " + Stats.FavoriteYear(pd));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		return results;
+	}
+	
 	
 
 }
