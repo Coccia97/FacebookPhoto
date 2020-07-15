@@ -7,6 +7,7 @@ import com.Exam.FacebookPhoto.util.Stats.*;
 import com.Exam.FacebookPhoto.Model.PhotoData;
 
 import java.text.DateFormat;
+import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -53,8 +54,9 @@ public class StringParser {
 
 			Calendar c = Calendar.getInstance();
 			c.setTime(resultDate);
+			String dayNames[] = new DateFormatSymbols().getWeekdays();
 			PhotoData pd = new PhotoData(c.get(Calendar.DATE), new SimpleDateFormat("MMM").format(c.getTime()),
-					c.get(Calendar.YEAR), new SimpleDateFormat("MMM").format(c.getTime()),
+					c.get(Calendar.YEAR), dayNames[c.get(Calendar.DAY_OF_WEEK)],
 					metadata.photos.data.get(i).getId());
 
 			photodata.add(pd);
@@ -96,6 +98,7 @@ public class StringParser {
 			results.add("Media foto per ANNO   : " + Stats.MediaPhotoYear(pd));
 			results.add("Il mese in cui hai caricato più foto è   : " + Stats.FavoriteMonth(pd));
 			results.add("L'anno in cui hai caricato più foto è   : " + Stats.FavoriteYear(pd));
+			results.add("il giorno in cui hai caricato più foto è   : " + Stats.FavoriteDay(pd));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

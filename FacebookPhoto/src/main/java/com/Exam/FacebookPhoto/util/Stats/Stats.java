@@ -190,17 +190,17 @@ public class Stats {
 		int dom = 0;
 
 		for (int i = 0; i < pd.size(); i++) {
-			if (pd.get(i).getDayName().compareTo("lun") == 0)
+			if (pd.get(i).getDayName().compareTo("lunedì") == 0)
 				lun += 1;
-			else if (pd.get(i).getDayName().compareTo("mar") == 0)
+			else if (pd.get(i).getDayName().compareTo("martedì") == 0)
 				mar += 1;
-			else if (pd.get(i).getDayName().compareTo("mer") == 0)
+			else if (pd.get(i).getDayName().compareTo("mercoledì") == 0)
 				mer += 1;
-			else if (pd.get(i).getDayName().compareTo("gio") == 0)
+			else if (pd.get(i).getDayName().compareTo("giovedì") == 0)
 				gio += 1;
-			else if (pd.get(i).getDayName().compareTo("ven") == 0)
+			else if (pd.get(i).getDayName().compareTo("venerdì") == 0)
 				ven += 1;
-			else if (pd.get(i).getDayName().compareTo("sab") == 0)
+			else if (pd.get(i).getDayName().compareTo("sabato") == 0)
 				sab += 1;
 			else
 				dom += 1;
