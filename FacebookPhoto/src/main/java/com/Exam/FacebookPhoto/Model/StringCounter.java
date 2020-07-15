@@ -1,21 +1,21 @@
 package com.Exam.FacebookPhoto.Model;
 
-public class MonthCounter {
-	private String mese;
+public class StringCounter {
+	private String string;
 	private int counter;
 
-	public MonthCounter(String mese, int counter) {
+	public StringCounter(String string, int counter) {
 		super();
-		this.mese = mese;
+		this.string = string;
 		this.counter = counter;
 	}
 
-	public String getMese() {
-		return mese;
+	public String getString() {
+		return string;
 	}
 
-	public void setMese(String mese) {
-		this.mese = mese;
+	public void setMese(String string) {
+		this.string = string;
 	}
 
 	public int getCounter() {

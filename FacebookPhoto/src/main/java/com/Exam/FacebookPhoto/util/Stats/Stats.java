@@ -7,8 +7,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-import com.Exam.FacebookPhoto.Model.MonthCounter;
 import com.Exam.FacebookPhoto.Model.PhotoData;
+import com.Exam.FacebookPhoto.Model.StringCounter;
 import com.Exam.FacebookPhoto.Model.YearCounter;
 
 public class Stats {
@@ -54,7 +54,7 @@ public class Stats {
 	}
 
 	public static String FavoriteMonth(ArrayList<PhotoData> pd) {
-		ArrayList<MonthCounter> mc = new ArrayList<MonthCounter>();
+		ArrayList<StringCounter> mc = new ArrayList<StringCounter>();
 
 		int gen = 0;
 		int feb = 0;
@@ -96,87 +96,131 @@ public class Stats {
 				dic += 1;
 
 		}
-		mc.add(new MonthCounter("Gennaio", gen));
-		mc.add(new MonthCounter("Febbraio", feb));
-		mc.add(new MonthCounter("Marzo", mar));
-		mc.add(new MonthCounter("Aprile", apr));
-		mc.add(new MonthCounter("Maggio", mag));
-		mc.add(new MonthCounter("Giugno", giu));
-		mc.add(new MonthCounter("Luglio", lug));
-		mc.add(new MonthCounter("Agosto", ago));
-		mc.add(new MonthCounter("Settembre", set));
-		mc.add(new MonthCounter("Ottobre", ott));
-		mc.add(new MonthCounter("Novembre", nov));
-		mc.add(new MonthCounter("Dicembre", dic));
-		MonthCounter temp = mc.get(0);
+		mc.add(new StringCounter("Gennaio", gen));
+		mc.add(new StringCounter("Febbraio", feb));
+		mc.add(new StringCounter("Marzo", mar));
+		mc.add(new StringCounter("Aprile", apr));
+		mc.add(new StringCounter("Maggio", mag));
+		mc.add(new StringCounter("Giugno", giu));
+		mc.add(new StringCounter("Luglio", lug));
+		mc.add(new StringCounter("Agosto", ago));
+		mc.add(new StringCounter("Settembre", set));
+		mc.add(new StringCounter("Ottobre", ott));
+		mc.add(new StringCounter("Novembre", nov));
+		mc.add(new StringCounter("Dicembre", dic));
+		StringCounter temp = mc.get(0);
 		for (int i = 0; i < mc.size() - 1; i++) {
-			if (mc.get(i).getCounter() >temp.getCounter())
+			if (mc.get(i).getCounter() > temp.getCounter())
 				temp = mc.get(i);
 
 		}
-		return temp.getMese();
+		return temp.getString();
 	}
 
-public static int  FavoriteYear(ArrayList<PhotoData> pd) {
-	ArrayList<YearCounter> yc = new ArrayList<YearCounter>();
+	public static int FavoriteYear(ArrayList<PhotoData> pd) {
+		ArrayList<YearCounter> yc = new ArrayList<YearCounter>();
 
-	int dieci=0;
-	int undici=0;
-	int dodici=0;
-	int tredici=0;
-	int quattordici=0;
-	int quindici=0;
-	int sedici=0;
-	int diciassette=0;
-	int diciotto=0;
-	int diciannove=0;
-	int venti=0;
+		int dieci = 0;
+		int undici = 0;
+		int dodici = 0;
+		int tredici = 0;
+		int quattordici = 0;
+		int quindici = 0;
+		int sedici = 0;
+		int diciassette = 0;
+		int diciotto = 0;
+		int diciannove = 0;
+		int venti = 0;
 
-	for (int i = 0; i < pd.size(); i++) {
-		if (pd.get(i).getYear() == 2010)
-			dieci +=1;
-		else if (pd.get(i).getYear() == 2011)
-			undici +=1;
-		else if (pd.get(i).getYear() == 2012)
-			dodici +=1;
-		else if (pd.get(i).getYear() == 2013)
-			tredici +=1;
-		else if (pd.get(i).getYear() == 2014)
-			quattordici +=1;
-		else if (pd.get(i).getYear() == 2015)
-			quindici +=1;
-		else if (pd.get(i).getYear() == 2016)
-			sedici +=1;
-		else if (pd.get(i).getYear() == 2017)
-			diciassette +=1;
-		else if (pd.get(i).getYear() == 2018)
-			diciotto +=1;
-		else if (pd.get(i).getYear() == 2019)
-			diciannove +=1;
-		else  
-		venti +=1;
-		
+		for (int i = 0; i < pd.size(); i++) {
+			if (pd.get(i).getYear() == 2010)
+				dieci += 1;
+			else if (pd.get(i).getYear() == 2011)
+				undici += 1;
+			else if (pd.get(i).getYear() == 2012)
+				dodici += 1;
+			else if (pd.get(i).getYear() == 2013)
+				tredici += 1;
+			else if (pd.get(i).getYear() == 2014)
+				quattordici += 1;
+			else if (pd.get(i).getYear() == 2015)
+				quindici += 1;
+			else if (pd.get(i).getYear() == 2016)
+				sedici += 1;
+			else if (pd.get(i).getYear() == 2017)
+				diciassette += 1;
+			else if (pd.get(i).getYear() == 2018)
+				diciotto += 1;
+			else if (pd.get(i).getYear() == 2019)
+				diciannove += 1;
+			else
+				venti += 1;
 
+		}
+		yc.add(new YearCounter(2010, dieci));
+		yc.add(new YearCounter(2011, undici));
+		yc.add(new YearCounter(2012, dodici));
+		yc.add(new YearCounter(2013, tredici));
+		yc.add(new YearCounter(2014, quattordici));
+		yc.add(new YearCounter(2015, quindici));
+		yc.add(new YearCounter(2016, sedici));
+		yc.add(new YearCounter(2017, diciassette));
+		yc.add(new YearCounter(2018, diciotto));
+		yc.add(new YearCounter(2019, diciannove));
+		yc.add(new YearCounter(2020, venti));
+
+		YearCounter temp1 = yc.get(0);
+		for (int i = 0; i < yc.size(); i++) {
+			if (yc.get(i).getCounter() > temp1.getCounter()) {
+				temp1 = yc.get(i);
+			}
+		}
+		return temp1.getYear();
 	}
-	yc.add(new YearCounter(2010, dieci));
-	yc.add(new YearCounter(2011, undici));
-	yc.add(new YearCounter(2012, dodici));
-	yc.add(new YearCounter(2013, tredici));
-	yc.add(new YearCounter(2014, quattordici));
-	yc.add(new YearCounter(2015, quindici));
-    yc.add(new YearCounter(2016, sedici));
-	yc.add(new YearCounter(2017, diciassette));
-	yc.add(new YearCounter(2018, diciotto));
-	yc.add(new YearCounter(2019, diciannove));
-	yc.add(new YearCounter(2020, venti));
-	
-	YearCounter temp1=yc.get(0);
-	for(int i=0; i<yc.size(); i++) {
-		if(yc.get(i).getCounter()>temp1.getCounter()) {
-			temp1=yc.get(i);
+
+	public static String FavoriteDay(ArrayList<PhotoData> pd) {
+		ArrayList<StringCounter> yc = new ArrayList<StringCounter>();
+
+		int lun = 0;
+		int mar = 0;
+		int mer = 0;
+		int gio = 0;
+		int ven = 0;
+		int sab = 0;
+		int dom = 0;
+
+		for (int i = 0; i < pd.size(); i++) {
+			if (pd.get(i).getDayName().compareTo("lun") == 0)
+				lun += 1;
+			else if (pd.get(i).getDayName().compareTo("mar") == 0)
+				mar += 1;
+			else if (pd.get(i).getDayName().compareTo("mer") == 0)
+				mer += 1;
+			else if (pd.get(i).getDayName().compareTo("gio") == 0)
+				gio += 1;
+			else if (pd.get(i).getDayName().compareTo("ven") == 0)
+				ven += 1;
+			else if (pd.get(i).getDayName().compareTo("sab") == 0)
+				sab += 1;
+			else
+				dom += 1;
+
+		}
+		yc.add(new StringCounter("Lunedì", lun));
+		yc.add(new StringCounter("Martedì", mar));
+		yc.add(new StringCounter("Mercoledì", mer));
+		yc.add(new StringCounter("Giovedì", gio));
+		yc.add(new StringCounter("Venerdì", ven));
+		yc.add(new StringCounter("Sabato", sab));
+		yc.add(new StringCounter("Domenica", dom));
+
+		StringCounter temp2 = yc.get(0);
+		for (int i = 0; i < yc.size(); i++) {
+			if (yc.get(i).getCounter() > temp2.getCounter()) {
+				temp2 = yc.get(i);
+			}
+		}
+		return temp2.getString();
 	}
-	}
-return temp1.getYear();
-}
 
 }

@@ -2,10 +2,6 @@ package com.Exam.FacebookPhoto;
 
 import com.Exam.FacebookPhoto.service.DownloadFromURL;
 import com.Exam.FacebookPhoto.service.StringParser;
-import com.Exam.FacebookPhoto.util.Stats.Stats;
-import com.Exam.FacebookPhoto.Model.PhotoData;
-
-import java.util.ArrayList;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
