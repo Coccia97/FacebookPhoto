@@ -12,7 +12,7 @@ public class FilterDayFollow extends FilterParam implements Filter {
 	
 	public boolean filter(PhotoData photodata) {
 		
-		if (photodata.getDay() > parametroInt)	{
+		if (photodata.getDay() >= parametroInt)	{
 			return true;
 		}
 		return false;

@@ -12,7 +12,7 @@ public class FilterYearPrevious extends FilterParam implements Filter {
 	
 	public boolean filter(PhotoData photodata) {
 		
-		if (photodata.getYear() > parametroInt)	{
+		if (photodata.getYear() <= parametroInt)	{
 			return true;
 		}
 		return false;

@@ -10,10 +10,10 @@ import com.Exam.FacebookPhoto.Model.PhotoData;
 import com.Exam.FacebookPhoto.util.varius.Filter;
 import com.Exam.FacebookPhoto.util.varius.FilterString;
 
-public class FilterMonthFollow extends FilterString implements Filter {
+public class FilterMonthIn extends FilterString implements Filter {
 
 	
-	public FilterMonthFollow(Object parametroString) {
+	public FilterMonthIn(Object parametroString) {
 		super(parametroString);
 		
 	}
@@ -41,17 +41,13 @@ public class FilterMonthFollow extends FilterString implements Filter {
 			}
 	    	Calendar cal2 = Calendar.getInstance();
 		    cal2.setTime(data2);
+		    //int month2 = Integer.parseInt(p);
 		    int month2 = cal2.get(Calendar.MONTH)+1;
-	    	
-	    	if ( month >= month2) {
+		    
+	    	if ( month == month2) {
 	    			return true;
 	    	}
 	 }
 		return false;
 }
 }
-	
-
-
-
-

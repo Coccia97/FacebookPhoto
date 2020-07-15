@@ -69,15 +69,13 @@ public class JSONParser {
 
 						case "and":
 							photoData = FilterService.runFilterAND(filter, previousArray);
-							System.out.println("and");
 							break;
 						case "or":
 							photoData = FilterService.runFilterOR(filter, previousArray);
-							System.out.println("or");
 							break;
 						default:
 							photoData = FilterService.runFilterOR(filter, previousArray);	
-							System.out.println("default");
+
 						}
 					}
 					return photoData;	
