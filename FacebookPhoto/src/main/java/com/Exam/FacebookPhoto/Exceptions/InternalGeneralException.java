@@ -1,5 +1,13 @@
 package com.Exam.FacebookPhoto.Exceptions;
 
+/**
+ * Rappresenta un'eccezione personalizzata del tipo Exception
+ * @see <a href="https://docs.oracle.com/javase/8/docs/api/index.html?java/lang/Exception.html">Exception</a>
+ * @author Andrea Marcheggiani
+ * @author Francesco Columbaro
+ *
+ */
+
 public class InternalGeneralException extends Exception {
 
 

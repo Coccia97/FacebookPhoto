@@ -10,6 +10,13 @@ import com.Exam.FacebookPhoto.Model.PhotoData;
 import com.Exam.FacebookPhoto.util.varius.Filter;
 import com.Exam.FacebookPhoto.util.varius.FilterString;
 
+/**
+ * Rappresenta la classe che implementa il filtro per il campo Month
+ * con l'operatore "corrisponde a..."
+ * @author Andrea Marcheggiani
+ * @author Francesco Columbaro
+ *
+ */
 public class FilterMonthIn extends FilterString implements Filter {
 
 	
@@ -20,7 +27,7 @@ public class FilterMonthIn extends FilterString implements Filter {
 
 	public boolean filter(PhotoData photodata) {
 		
-		Date data = null;
+		Date data = null;  //conversione da String a int mediante l'utilizzo della classe Calendar
 		Date data2 = null;
 		try {
 			data = new SimpleDateFormat("MMM", Locale.ITALIAN).parse(photodata.getMonth());
@@ -28,7 +35,7 @@ public class FilterMonthIn extends FilterString implements Filter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    Calendar cal = Calendar.getInstance();
+	    Calendar cal = Calendar.getInstance(); //utilizzo della classe Calendar
 	    cal.setTime(data);
 	    int month = cal.get(Calendar.MONTH)+1;
 	    for(String p : param) {
@@ -41,7 +48,7 @@ public class FilterMonthIn extends FilterString implements Filter {
 			}
 	    	Calendar cal2 = Calendar.getInstance();
 		    cal2.setTime(data2);
-		    //int month2 = Integer.parseInt(p);
+		    
 		    int month2 = cal2.get(Calendar.MONTH)+1;
 		    
 	    	if ( month == month2) {

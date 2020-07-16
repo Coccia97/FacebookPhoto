@@ -4,6 +4,13 @@ import com.Exam.FacebookPhoto.Model.PhotoData;
 import com.Exam.FacebookPhoto.util.varius.Filter;
 import com.Exam.FacebookPhoto.util.varius.FilterParam;
 
+/**
+ * Rappresenta la classe che implementa il filtro per il campo Day
+ * con l'operatore "precedenti a..."
+ * @author Andrea Marcheggiani
+ * @author Francesco Columbaro
+ *
+ */
 public class FilterDayPrevious extends FilterParam implements Filter {
 	
 	public FilterDayPrevious(Object parametroInt) {

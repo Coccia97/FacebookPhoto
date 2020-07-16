@@ -3,12 +3,23 @@ package com.Exam.FacebookPhoto.util.varius;
 import com.Exam.FacebookPhoto.Model.PhotoData;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+/**
+ * Rappresenta l'interfaccia per i filtri
+ * @author Andrea Marcheggiani
+ * @author Francesco Columbaro
+ *
+ */
 
- //Rappresenta l interfaccia per i filtri.
 public interface Filter {
 	
-	public boolean filter(PhotoData photodata);  /*questo metodo restituisce True se il record rispetta le caratteristiche 
-	                                        richeste del filtro che implementa l'interfaccia.*/
+	/**
+	 * Metodo che restituisce True se photodata rispetta le caratteristiche
+	 * richieste dal filtro che implementa l'interfaccia
+	 * @param photodata su cui si vuole eseguire la verifica
+	 * @return risposta della verifica
+	 */
+	
+	public boolean filter(PhotoData photodata);  
 
 
 }

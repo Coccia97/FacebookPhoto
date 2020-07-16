@@ -2,12 +2,22 @@ package com.Exam.FacebookPhoto.util.varius;
 
 import java.util.ArrayList;
 
+/**
+ * Rappresenta la superclasse dei filtri che lavorano con una stringa
+ * @author Andrea Marcheggiani
+ * @author Francesco Columbaro
+ */
+
 public class FilterString {
-
-		protected ArrayList<String> param = new ArrayList<String>();
-
 		
-		// Costruttore 
+		protected ArrayList<String> param = new ArrayList<String>();
+		
+		/**
+		 * Costruttore
+		 * @param parametroString deve essere un ArrayList String
+		 * @throws IllegalArgumentException parametroString non è del tipo richiesto
+		 */
+		
 		
 		public FilterString(Object parametroString) {
 			
@@ -28,8 +38,11 @@ public class FilterString {
 			}
 		}
 		
-		
-		// Set 
+		/**
+		 * Set
+		 * @param parametroString deve essere un ArrayList String
+		 * @throws IllegalArgumentException parametroString non è del tipo richiesto
+		 */
 
 		public void SetParametroStringFiltro(Object parametroString) {
 			
