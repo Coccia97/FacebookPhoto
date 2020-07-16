@@ -10,9 +10,22 @@ import java.util.ArrayList;
 import com.Exam.FacebookPhoto.Model.PhotoData;
 import com.Exam.FacebookPhoto.Model.StringCounter;
 import com.Exam.FacebookPhoto.Model.YearCounter;
-
+/**
+ * 
+ * classe che implementa i metodi per ottenere le statistiche riguardo a partire da un Arraylist<PhotoData>
+ * 
+ * @author Andrea Marcheggiani
+ * @author Francesco Columbaro
+ *
+ */
 public class Stats {
 
+	/**
+	 * 
+	 * @param pd Arraylist<PhotoData> contenente tutti i dati sulle foto caricate
+	 * @return numero di giorni tra il primo e l'ultimo caricamento 
+	 * @throws ParseException
+	 */
 	private static long TotDays(ArrayList<PhotoData> pd) throws ParseException {
 		DateFormat sdf = new SimpleDateFormat("yyyy-MMM-dd");
 		Date firstdate = sdf.parse(pd.get(0).getYear() + "-" + pd.get(0).getMonth() + "-" + pd.get(0).getDay());
@@ -23,11 +36,22 @@ public class Stats {
 
 		return diff;
 	}
+	/**
+	 * 
+	 * @param pd Arraylist<PhotoData> contenente tutti i dati sulle foto caricate
+	 * @return numero di elementi contenuti in pd 
+	 */
 
 	public static int TotPhoto(ArrayList<PhotoData> pd) {
 		System.out.println(pd.size());
 		return pd.size();
 	}
+	/**
+	 * 
+	 * @param pd Arraylist<PhotoData> contenente tutti i dati sulle foto caricate
+	 * @return media foto caricate ogni giorno 
+	 * @throws ParseException
+	 */
 
 	public static double MediaPhotoDays(ArrayList<PhotoData> pd) throws ParseException {
 
@@ -36,6 +60,12 @@ public class Stats {
 
 		return avg;
 	}
+	/**
+	 *
+	 * @param pd Arraylist<PhotoData> contenente tutti i dati sulle foto caricate
+	 * @return media foto caricate ogni giorno 
+	 * @throws ParseException
+	 */
 
 	public static double MediaPhotoMonth(ArrayList<PhotoData> pd) throws ParseException {
 
@@ -44,6 +74,12 @@ public class Stats {
 
 		return avg;
 	}
+	/**
+	 * 
+	 * @param pd Arraylist<PhotoData> contenente tutti i dati sulle foto caricate
+	 * @return media foto caricate ogni anno 
+	 * @throws ParseException
+	 */
 
 	public static double MediaPhotoYear(ArrayList<PhotoData> pd) throws ParseException {
 
@@ -52,6 +88,11 @@ public class Stats {
 
 		return avg;
 	}
+	/**
+	 * 
+	 * @param pd Arraylist<PhotoData> contenente tutti i dati sulle foto caricate
+	 * @return mese in cui hai caricato più foto
+	 */
 
 	public static String FavoriteMonth(ArrayList<PhotoData> pd) {
 		ArrayList<StringCounter> mc = new ArrayList<StringCounter>();
@@ -116,6 +157,11 @@ public class Stats {
 		}
 		return temp.getString();
 	}
+	/**
+	 * 
+	 * @param pd Arraylist<PhotoData> contenente tutti i dati sulle foto caricate
+	 * @return anno in cui hai caricato più foto
+	 */
 
 	public static int FavoriteYear(ArrayList<PhotoData> pd) {
 		ArrayList<YearCounter> yc = new ArrayList<YearCounter>();
@@ -177,6 +223,11 @@ public class Stats {
 		}
 		return temp1.getYear();
 	}
+	/**
+	 * 
+	 * @param pd Arraylist<PhotoData> contenente tutti i dati sulle foto caricate
+	 * @return giorno in cui hai caricato più foto
+	 */
 
 	public static String FavoriteDay(ArrayList<PhotoData> pd) {
 		ArrayList<StringCounter> yc = new ArrayList<StringCounter>();

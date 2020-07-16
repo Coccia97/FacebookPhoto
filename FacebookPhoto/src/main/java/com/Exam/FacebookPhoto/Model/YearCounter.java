@@ -1,5 +1,16 @@
 package com.Exam.FacebookPhoto.Model;
-
+/**
+ * 
+ * classe con lo scopo di contare quante volte ricorre un certo anno(Year) tramite counter a fini statistici 
+ * (in conteggio è fatto tramite un metodo presente in Stats)
+ * 
+ * @author Andrea Marcheggiani
+ * @author Francesco Columbaro
+ * 
+ * @param Year Anno da considerare  
+ * @param counter   numero di iterazioni di quell'anno 
+ * 
+ */
 public class YearCounter {
 	int Year;
 	int Counter;

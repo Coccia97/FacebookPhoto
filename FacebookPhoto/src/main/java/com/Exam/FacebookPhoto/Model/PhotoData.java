@@ -1,5 +1,17 @@
 package com.Exam.FacebookPhoto.Model;
-
+/**
+ * 
+ * Classe che moddella ulteriormente il contenuto dell'ArrayList<Data> tramite le utility calendar di java 
+ * 
+ * @author Andrea Marcheggiani
+ * @author Francesco Columbaro
+ * @param day giorno come intero 
+ * @param month mese come stringa
+ * @param year anno come intero 
+ * @param dayName giorno come stringa
+ * @param id id come stringa 
+ *
+ */
 public class PhotoData {
 	
 	private int day;

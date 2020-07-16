@@ -16,16 +16,30 @@ import java.util.Date;
 
 import com.Exam.FacebookPhoto.Model.Data;
 
-//classe  utile per adattare la Stringa ottenuta dal JSON all'oggetto photos 
+/**
+ * 
+ * classe che svolge piu funzioni :
+ * -trasforma la stringa ottenuta tramite DownloadURL in un tipo Metadata
+ * - ottento un ArrayList<PhotoData> a partire dal Metadata 
+ * - genera le uscite per le richieste GET/ e POST 
+ * 
+ * @author Andrea Marcheggiani
+ * @author Francesco columbaro
+ * @param metadata inizializzo la variabile metadata 
+ * @param photodata inizializzo la variabile ArrayList<Photodata>
+ * 
+ */
 
 public class StringParser {
 
 	private static Metadata metadata = new Metadata();
 	private static ArrayList<PhotoData> photodata = new ArrayList<PhotoData>();
 	
-	
-	
-	
+	/**
+	 * 
+	 * @param data stringa ottenuta tramite DownloadURL
+	 * @return metadata contenente i dati del JSON ordinati in classi 
+	 */
 
 	public static Metadata StringToPhotos(String data) {
 
@@ -34,7 +48,12 @@ public class StringParser {
 		return metadata;
 
 	}
-
+	/**
+	 *converte metadata in un  ArrayList<PhotoData> che, a differenza di metadata ha i parametri giorno mese e anno ordinati 
+	 *quindi più facili da elaborare e trattare 
+	 *
+	 * @return ArrayList<PhotoData> 
+	 */
 	public static ArrayList<PhotoData> DataConverter() {
 		photodata.clear();
 		
@@ -67,6 +86,13 @@ public class StringParser {
 		return photodata;
 	}
 	
+	/**
+	 * trasforma ogni elemento ArrayList<PhotoData> in una stringa 
+	 * serve per la richiesta GET/allphoto
+	 * 
+	 * @param s ArrayList<PhotoData> ottenito tramite DataConverter 
+	 * @return ArrayList<String>
+	 */
 	public static ArrayList<String> getPhotoDataString(ArrayList<PhotoData> s) {
 		ArrayList<String> photodatastring1 =new ArrayList<String>();
 		photodatastring1.clear();
@@ -80,14 +106,23 @@ public class StringParser {
 		return photodatastring1;
 	}
 	
-	
+	/**
+	 * estrae dal metadata il solo ArrayList<Data>
+	 * @return ArrayList<Data> 
+	 */
 
 	public static ArrayList<Data> getArrayData() {
 
 		return metadata.photos.data;
 	}
 	
-	
+	/**
+	 * prende in input ArrayList<PhotoData> e mi rida una serie di stringhe contenenti le statisticeh ottenute tramite Stats
+	 * serve per la richiesta GET/photodata
+	 * 
+	 * @param pd ArrayList<PhotoData> ottenito tramite DataConverter 
+	 * @return ArrayList<String>
+	 */
 	public static ArrayList<String> getStats(ArrayList<PhotoData> pd){
 		ArrayList<String> results = new ArrayList<String>();
 		

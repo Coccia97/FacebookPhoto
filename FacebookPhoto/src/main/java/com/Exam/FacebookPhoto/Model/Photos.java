@@ -2,6 +2,19 @@ package com.Exam.FacebookPhoto.Model;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * una serie di classi che ha lo scopo di modellare il JSON per rendere
+ * i dati maneggiabili
+ * 
+ * @author Andrea Marcheggiani
+ * @author Francesco Columbaro
+ * 
+ * @param data l'array con le foto
+ * @param id   sottosezione paging con vari dati contenuti nel json che a noi non serviranno
+ * 
+ */
+
 public class Photos {
 	public ArrayList<Data> data;
 	public Paging paging;
