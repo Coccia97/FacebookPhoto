@@ -79,18 +79,18 @@ le richieste disponibili sono le seguenti
 **Chiamata GET/allphoto** Il Controller esegue una chiamata tramite il metodo getPhotoDataString, il quale
 inizializza un ArrayList PhotoData, lo converte in ArrayList String (con i parametri separati quindi più facili
 da trattare) e lo restituisce.
-![](GET allphoto.png)
+![](GETallphoto.png)
 ## POST/allphoto
 **Chiamata POST/allphoto** Il Controller esegue una chiamata tramite getPhotoDataString alla classe JsonParser.
 Le classi jsonParserColumn e jsonParserOperator effettueranno il parsing e ricaveranno le informazioni
 relative al filtraggio. Queste ultime verranno utilizzate da instanceFilter che instanzierà filtri 
 presi dalle classi contenute nel package com.Exam.FacebookPhoto.util.filter. Il filtraggio avverrà tramite
 runFilter che restituirà l'ArrayList, anch'esso in formato String.
-![](POST allphoto.png)
+![](POSTallphoto.png)
 ## GET/photostats
 **Chiamata GET/photostats** Il Controller esegue una chiamata tramite getStats, il quale genererà un
 ArrayList String con ad ogni suo elemento una statistica ottenuta tramite chiamata in Stats.
-![](GET photostats.png)
+![](GETphotostats.png)
 ## POST/photostats
 **Chiamata POST/photostats** Il Controller esegue una chiamata tramite getPhotoDataString alla classe JsonParser.
 Le classi jsonParserColumn e jsonParserOperator effettueranno il parsing e ricaveranno le informazioni
@@ -98,7 +98,7 @@ relative al filtraggio. Queste ultime verranno utilizzate da instanceFilter che 
 presi dalle classi contenute nel package com.Exam.FacebookPhoto.util.filter. Il filtraggio avverrà tramite
 runFilter che restituirà l'ArrayList. Verrà effettuata la chiamata getStats la quale genererà un ArrayList String
 con ad ogni suo elemento una statistica ottenuta tramite chiamata in Stats.
-![](POST photostats.png)
+![](POSTphotostats.png)
 ## Nota
 Abbiamo deciso, per facilitare la visualizzazione dei dati, di formattare le risposte delle quattro richieste disponibili come stringhe. Ciò non toglie che con
 una piccola modifica è possibile cambiare il formato dei dati esportati in un altro desiderato, ad esempio il JSON.
