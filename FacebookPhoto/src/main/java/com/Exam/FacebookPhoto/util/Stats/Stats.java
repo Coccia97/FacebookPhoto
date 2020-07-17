@@ -7,9 +7,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import com.Exam.FacebookPhoto.Model.Counter;
 import com.Exam.FacebookPhoto.Model.PhotoData;
-import com.Exam.FacebookPhoto.Model.StringCounter;
-import com.Exam.FacebookPhoto.Model.YearCounter;
 /**
  * 
  * classe che implementa i metodi per ottenere le statistiche riguardo a partire da un Arraylist<PhotoData>
@@ -95,7 +94,7 @@ public class Stats {
 	 */
 
 	public static String FavoriteMonth(ArrayList<PhotoData> pd) {
-		ArrayList<StringCounter> mc = new ArrayList<StringCounter>();
+		ArrayList<Counter> mc = new ArrayList<Counter>();
 
 		int gen = 0;
 		int feb = 0;
@@ -137,19 +136,19 @@ public class Stats {
 				dic += 1;
 
 		}
-		mc.add(new StringCounter("Gennaio", gen));
-		mc.add(new StringCounter("Febbraio", feb));
-		mc.add(new StringCounter("Marzo", mar));
-		mc.add(new StringCounter("Aprile", apr));
-		mc.add(new StringCounter("Maggio", mag));
-		mc.add(new StringCounter("Giugno", giu));
-		mc.add(new StringCounter("Luglio", lug));
-		mc.add(new StringCounter("Agosto", ago));
-		mc.add(new StringCounter("Settembre", set));
-		mc.add(new StringCounter("Ottobre", ott));
-		mc.add(new StringCounter("Novembre", nov));
-		mc.add(new StringCounter("Dicembre", dic));
-		StringCounter temp = mc.get(0);
+		mc.add(new Counter("Gennaio", gen));
+		mc.add(new Counter("Febbraio", feb));
+		mc.add(new Counter("Marzo", mar));
+		mc.add(new Counter("Aprile", apr));
+		mc.add(new Counter("Maggio", mag));
+		mc.add(new Counter("Giugno", giu));
+		mc.add(new Counter("Luglio", lug));
+		mc.add(new Counter("Agosto", ago));
+		mc.add(new Counter("Settembre", set));
+		mc.add(new Counter("Ottobre", ott));
+		mc.add(new Counter("Novembre", nov));
+		mc.add(new Counter("Dicembre", dic));
+		Counter temp = mc.get(0);
 		for (int i = 0; i < mc.size() - 1; i++) {
 			if (mc.get(i).getCounter() > temp.getCounter())
 				temp = mc.get(i);
@@ -164,7 +163,7 @@ public class Stats {
 	 */
 
 	public static int FavoriteYear(ArrayList<PhotoData> pd) {
-		ArrayList<YearCounter> yc = new ArrayList<YearCounter>();
+		ArrayList<Counter> yc = new ArrayList<Counter>();
 
 		int dieci = 0;
 		int undici = 0;
@@ -203,25 +202,25 @@ public class Stats {
 				venti += 1;
 
 		}
-		yc.add(new YearCounter(2010, dieci));
-		yc.add(new YearCounter(2011, undici));
-		yc.add(new YearCounter(2012, dodici));
-		yc.add(new YearCounter(2013, tredici));
-		yc.add(new YearCounter(2014, quattordici));
-		yc.add(new YearCounter(2015, quindici));
-		yc.add(new YearCounter(2016, sedici));
-		yc.add(new YearCounter(2017, diciassette));
-		yc.add(new YearCounter(2018, diciotto));
-		yc.add(new YearCounter(2019, diciannove));
-		yc.add(new YearCounter(2020, venti));
+		yc.add(new Counter(2010, dieci));
+		yc.add(new Counter(2011, undici));
+		yc.add(new Counter(2012, dodici));
+		yc.add(new Counter(2013, tredici));
+		yc.add(new Counter(2014, quattordici));
+		yc.add(new Counter(2015, quindici));
+		yc.add(new Counter(2016, sedici));
+		yc.add(new Counter(2017, diciassette));
+		yc.add(new Counter(2018, diciotto));
+		yc.add(new Counter(2019, diciannove));
+		yc.add(new Counter(2020, venti));
 
-		YearCounter temp1 = yc.get(0);
+		Counter temp1 = yc.get(0);
 		for (int i = 0; i < yc.size(); i++) {
 			if (yc.get(i).getCounter() > temp1.getCounter()) {
 				temp1 = yc.get(i);
 			}
 		}
-		return temp1.getYear();
+		return temp1.getNum();
 	}
 	/**
 	 * 
@@ -230,7 +229,7 @@ public class Stats {
 	 */
 
 	public static String FavoriteDay(ArrayList<PhotoData> pd) {
-		ArrayList<StringCounter> yc = new ArrayList<StringCounter>();
+		ArrayList<Counter> yc = new ArrayList<Counter>();
 
 		int lun = 0;
 		int mar = 0;
@@ -257,15 +256,15 @@ public class Stats {
 				dom += 1;
 
 		}
-		yc.add(new StringCounter("Lunedì", lun));
-		yc.add(new StringCounter("Martedì", mar));
-		yc.add(new StringCounter("Mercoledì", mer));
-		yc.add(new StringCounter("Giovedì", gio));
-		yc.add(new StringCounter("Venerdì", ven));
-		yc.add(new StringCounter("Sabato", sab));
-		yc.add(new StringCounter("Domenica", dom));
+		yc.add(new Counter("Lunedì", lun));
+		yc.add(new Counter("Martedì", mar));
+		yc.add(new Counter("Mercoledì", mer));
+		yc.add(new Counter("Giovedì", gio));
+		yc.add(new Counter("Venerdì", ven));
+		yc.add(new Counter("Sabato", sab));
+		yc.add(new Counter("Domenica", dom));
 
-		StringCounter temp2 = yc.get(0);
+		Counter temp2 = yc.get(0);
 		for (int i = 0; i < yc.size(); i++) {
 			if (yc.get(i).getCounter() > temp2.getCounter()) {
 				temp2 = yc.get(i);

@@ -6,9 +6,22 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-
+/**
+ * classe con lo scopo di prendere in input l'url da cui prendere i dati e scrivere il suo contenuto su si una stringa 
+ * 
+ * @author Andrea Marcheggiani
+ * @author Francesco Columbaro
+ * 
+ * @param data stringa su cui scrivo il file JSON
+ * 
+ */
 public class DownloadFromURL {
 	public String data = "";
+	/**
+	 * 
+	 * @param url link per scaricare i dati
+	 * @return stringa contenente il JSON in forma di stringa 
+	 */
 
 	public String JsonToString(String url) {
 
