@@ -11,7 +11,7 @@ import com.Exam.FacebookPhoto.Model.Counter;
 import com.Exam.FacebookPhoto.Model.PhotoData;
 /**
  * 
- * classe che implementa i metodi per ottenere le statistiche riguardo a partire da un Arraylist<PhotoData>
+ * classe che implementa i metodi per ottenere le statistiche riguardo a partire da un Arraylist di PhotoData
  * 
  * @author Andrea Marcheggiani
  * @author Francesco Columbaro
@@ -21,7 +21,7 @@ public class Stats {
 
 	/**
 	 * 
-	 * @param pd Arraylist<PhotoData> contenente tutti i dati sulle foto caricate
+	 * @param pd Arraylist di PhotoData contenente tutti i dati sulle foto caricate
 	 * @return numero di giorni tra il primo e l'ultimo caricamento 
 	 * @throws ParseException
 	 */
@@ -37,7 +37,7 @@ public class Stats {
 	}
 	/**
 	 * 
-	 * @param pd Arraylist<PhotoData> contenente tutti i dati sulle foto caricate
+	 * @param pd Arraylist di PhotoData contenente tutti i dati sulle foto caricate
 	 * @return numero di elementi contenuti in pd 
 	 */
 
@@ -47,9 +47,9 @@ public class Stats {
 	}
 	/**
 	 * 
-	 * @param pd Arraylist<PhotoData> contenente tutti i dati sulle foto caricate
+	 * @param pd Arraylist di PhotoData contenente tutti i dati sulle foto caricate
 	 * @return media foto caricate ogni giorno 
-	 * @throws ParseException
+	 * @throws ParseException errore di parsing 
 	 */
 
 	public static double MediaPhotoDays(ArrayList<PhotoData> pd) throws ParseException {
@@ -61,9 +61,9 @@ public class Stats {
 	}
 	/**
 	 *
-	 * @param pd Arraylist<PhotoData> contenente tutti i dati sulle foto caricate
+	 * @param pd Arraylist di PhotoData contenente tutti i dati sulle foto caricate
 	 * @return media foto caricate ogni giorno 
-	 * @throws ParseException
+	 * @throws ParseException errore di parsing 
 	 */
 
 	public static double MediaPhotoMonth(ArrayList<PhotoData> pd) throws ParseException {
@@ -75,9 +75,9 @@ public class Stats {
 	}
 	/**
 	 * 
-	 * @param pd Arraylist<PhotoData> contenente tutti i dati sulle foto caricate
+	 * @param pd Arraylist di PhotoData contenente tutti i dati sulle foto caricate
 	 * @return media foto caricate ogni anno 
-	 * @throws ParseException
+	 * @throws ParseException errore di parsing 
 	 */
 
 	public static double MediaPhotoYear(ArrayList<PhotoData> pd) throws ParseException {
@@ -89,7 +89,7 @@ public class Stats {
 	}
 	/**
 	 * 
-	 * @param pd Arraylist<PhotoData> contenente tutti i dati sulle foto caricate
+	 * @param pd Arraylist di PhotoData contenente tutti i dati sulle foto caricate
 	 * @return mese in cui hai caricato più foto
 	 */
 
@@ -158,7 +158,7 @@ public class Stats {
 	}
 	/**
 	 * 
-	 * @param pd Arraylist<PhotoData> contenente tutti i dati sulle foto caricate
+	 * @param pd Arraylist di PhotoData contenente tutti i dati sulle foto caricate
 	 * @return anno in cui hai caricato più foto
 	 */
 
@@ -224,7 +224,7 @@ public class Stats {
 	}
 	/**
 	 * 
-	 * @param pd Arraylist<PhotoData> contenente tutti i dati sulle foto caricate
+	 * @param pd Arraylist di PhotoData contenente tutti i dati sulle foto caricate
 	 * @return giorno in cui hai caricato più foto
 	 */
 

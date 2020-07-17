@@ -23,6 +23,7 @@ import com.Exam.FacebookPhoto.Exceptions.ErrorModel;
 public class ExceptionManagClass {
 	/**
 	 * Classe che risponde quando viene lanciato l'errore FilterIllegalArgumentException
+	 * @param e FilterIllegalArgumentException
 	 * @return ResponseEntity di Object errorModel
 	 */
 	
@@ -40,6 +41,7 @@ public class ExceptionManagClass {
 	}
 	/**
 	 * Classe che risponde quando viene lanciato l'errore FilterNotFoundException
+	 * @param e FilterNotFoundException
 	 * @return ResponseEntity di Object errorModel
 	 */
 	
@@ -57,6 +59,7 @@ public class ExceptionManagClass {
 	}
 	/**
 	 * Classe che risponde quando viene lanciato l'errore InternalGeneralException
+	 * @param e InternalGeneralException
 	 * @return ResponseEntity di Object errorModel
 	 */
 	@ExceptionHandler( value = {InternalGeneralException.class})

@@ -20,7 +20,7 @@ import com.Exam.FacebookPhoto.Model.Data;
  * 
  * classe che svolge piu funzioni :
  * -trasforma la stringa ottenuta tramite DownloadURL in un tipo Metadata
- * - ottento un ArrayList<PhotoData> a partire dal Metadata 
+ * - ottento un ArrayList di PhotoData a partire dal Metadata 
  * - genera le uscite per le richieste GET/ e POST 
  * 
  * @author Andrea Marcheggiani
@@ -52,7 +52,7 @@ public class StringParser {
 	 *converte metadata in un  ArrayList<PhotoData> che, a differenza di metadata ha i parametri giorno mese e anno ordinati 
 	 *quindi più facili da elaborare e trattare 
 	 *
-	 * @return ArrayList<PhotoData> 
+	 * @return ArrayList di PhotoData
 	 */
 	public static ArrayList<PhotoData> DataConverter() {
 		photodata.clear();
@@ -87,11 +87,11 @@ public class StringParser {
 	}
 	
 	/**
-	 * trasforma ogni elemento ArrayList<PhotoData> in una stringa 
+	 * trasforma ogni elemento ArrayList di PhotoData in una stringa 
 	 * serve per la richiesta GET/allphoto
 	 * 
-	 * @param s ArrayList<PhotoData> ottenito tramite DataConverter 
-	 * @return ArrayList<String>
+	 * @param s ArrayList di PhotoData ottenito tramite DataConverter 
+	 * @return ArrayList di String
 	 */
 	public static ArrayList<String> getPhotoDataString(ArrayList<PhotoData> s) {
 		ArrayList<String> photodatastring1 =new ArrayList<String>();
@@ -107,8 +107,8 @@ public class StringParser {
 	}
 	
 	/**
-	 * estrae dal metadata il solo ArrayList<Data>
-	 * @return ArrayList<Data> 
+	 * estrae dal metadata il solo ArrayList di Data 
+	 * @return ArrayList di Data
 	 */
 
 	public static ArrayList<Data> getArrayData() {
@@ -117,11 +117,11 @@ public class StringParser {
 	}
 	
 	/**
-	 * prende in input ArrayList<PhotoData> e mi rida una serie di stringhe contenenti le statisticeh ottenute tramite Stats
+	 * prende in input ArrayList di PhotoData e mi rida una serie di stringhe contenenti le statisticeh ottenute tramite Stats
 	 * serve per la richiesta GET/photodata
 	 * 
-	 * @param pd ArrayList<PhotoData> ottenito tramite DataConverter 
-	 * @return ArrayList<String>
+	 * @param pd ArrayList di PhotoData ottenito tramite DataConverter 
+	 * @return ArrayList di String
 	 */
 	public static ArrayList<String> getStats(ArrayList<PhotoData> pd){
 		ArrayList<String> results = new ArrayList<String>();
