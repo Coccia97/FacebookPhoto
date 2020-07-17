@@ -45,21 +45,21 @@ le richieste disponibili sono le seguenti
 |    TIPO        |rotta                          |descrizione                                |
 |----------------|-------------------------------|-------------------------------------------|
 |GET             |/allphoto                     |restituisce tutte le foto caricate            |
-|GET             |/photodata                          |restituisce le statiche sulle foto caricate                |
+|GET             |/photodata                          |restituisce le statistiche sulle foto caricate                |
 |POST            |/allphoto                          |restituisce le foto caricate  rispettano il filtri specificato nella richiesta                                     |
-|POST            |/photodata      |restituisce le statiche sulle foto caricate rispettano il filtri specificato nella richiesta  |
+|POST            |/photodata      |restituisce le statistiche sulle foto caricate rispettano il filtri specificato nella richiesta  |
 
 ## Filtri Disponibili 
 | Nome operatore | Descrizione                                |Esempio                                     |
 |----------------|--------------------------------------------|--------------------------------------------|
-|     |        |             |
-|         |           |            |
-|      |       |    |     
-|     |     |     |
+|Follow          |"successivi a..."                           |{"Year":{"Follow":2016}} / {"Month":{"Follow":["giu"]}} |
+|Previous        |"precedenti a..."                           |{"Year":{"Previous":2016}}    |
+|Equal           |"corrisponde a..."                          |{"Year":{"Equal":2016}} / {"Dayname":{"Equal":["lunedì"]}}|
+|Nequal          |"non corrisponde a..."                      |{"Year":{"Nequal":2016}} / {"Dayname":{"Nequal":["lunedì"]}}     |
 
 # Struttura Programma 
 ## Package 
-![](secondografico.png)
+![](Secondografico.png)
 ## Model
 ![](model.png)
 ## Service
@@ -67,10 +67,55 @@ le richieste disponibili sono le seguenti
 ## Controller
 ![](Controller.png)
 ## Exception
-![](Exceprion.png)
+![](Exceptions.png)
 ## Various
 ![](various.png)
 ## Stats
 ![](Stats.png)
 ## Filter
 ![](filter.png)
+# Diagramma delle sequenze
+## GET/allphoto
+**Chiamata GET/allphoto** Il Controller esegue una chiamata tramite il metodo getPhotoDataString, il quale
+inizializza un ArrayList PhotoData, lo converte in ArrayList String (con i parametri separati quindi più facili
+da trattare) e lo restituisce.
+![](GET allphoto.png)
+## POST/allphoto
+**Chiamata POST/allphoto** Il Controller esegue una chiamata tramite getPhotoDataString alla classe JsonParser.
+Le classi jsonParserColumn e jsonParserOperator effettueranno il parsing e ricaveranno le informazioni
+relative al filtraggio. Queste ultime verranno utilizzate da instanceFilter che instanzierà filtri 
+presi dalle classi contenute nel package com.Exam.FacebookPhoto.util.filter. Il filtraggio avverrà tramite
+runFilter che restituirà l'ArrayList, anch'esso in formato String.
+![](POST allphoto.png)
+## GET/photostats
+**Chiamata GET/photostats** Il Controller esegue una chiamata tramite getStats, il quale genererà un
+ArrayList String con ad ogni suo elemento una statistica ottenuta tramite chiamata in Stats.
+![](GET photostats.png)
+## POST/photostats
+**Chiamata POST/photostats** Il Controller esegue una chiamata tramite getPhotoDataString alla classe JsonParser.
+Le classi jsonParserColumn e jsonParserOperator effettueranno il parsing e ricaveranno le informazioni
+relative al filtraggio. Queste ultime verranno utilizzate da instanceFilter che instanzierà filtri 
+presi dalle classi contenute nel package com.Exam.FacebookPhoto.util.filter. Il filtraggio avverrà tramite
+runFilter che restituirà l'ArrayList. Verrà effettuata la chiamata getStats la quale genererà un ArrayList String
+con ad ogni suo elemento una statistica ottenuta tramite chiamata in Stats.
+![](POST photostats.png)
+## Nota
+Abbiamo deciso, per facilitare la visualizzazione dei dati, di formattare le risposte delle quattro richieste disponibili come stringhe. Ciò non toglie che con
+una piccola modifica è possibile cambiare il formato dei dati esportati in un altro desiderato, ad esempio il JSON.
+## Autori
+**Andrea Marcheggiani** - [GitHub](https://github.com/Coccia97)
+
+**Contributi** 
+* Stats
+* Model
+* Controller
+
+**Francesco Columbaro** - [GitHub](https://github.com/FrancescoColumb)
+
+**Contributi** 
+* Filter
+* Exceptions
+* Varius
+
+Le parti restanti sono state curate da entrambi.
+
