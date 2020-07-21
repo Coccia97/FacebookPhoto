@@ -13,37 +13,38 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JSONParser {
 	
-	public static ArrayList<PhotoData> jsonParserColumn(Object filter) 
+	public static ArrayList<PhotoData> jsonParserName(Object filter) 
 			throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException{
 				
-				ArrayList<PhotoData> previousArray = new ArrayList<PhotoData>();
-				ArrayList<PhotoData> filteredArray = new ArrayList<PhotoData>();
+				ArrayList<PhotoData> prevArray = new ArrayList<PhotoData>();
+				ArrayList<PhotoData> filterArray = new ArrayList<PhotoData>();
+				
 				HashMap<String, Object> result = new ObjectMapper().convertValue(filter, HashMap.class);
 				
 				for(Map.Entry<String, Object> entry : result.entrySet()) {
 					
 					
-					previousArray = new ArrayList<PhotoData>();
-				    String column = entry.getKey();
+					prevArray = new ArrayList<PhotoData>();
+				    String name = entry.getKey();
 				    Object filterParam = entry.getValue();
 				    try {
-						filteredArray = jsonParserOperator(column, filterParam, previousArray);
+						filterArray = jsonParserOperator(name, filterParam, prevArray);
 					} catch (  SecurityException e) {
 
 						throw new InternalGeneralException("Error in parsing I/O operation");
 						
 					} 
 				    
-				    previousArray = new ArrayList<PhotoData>();
-				    previousArray.addAll(filteredArray);
+				    prevArray = new ArrayList<PhotoData>();
+				    prevArray.addAll(filterArray);
 				}
-				return filteredArray;		
+				return filterArray;		
 			}
 	
 	
-	public static ArrayList<PhotoData> jsonParserOperator(String column, 
+	public static ArrayList<PhotoData> jsonParserOperator(String name, 
 			   										   Object filterParam, 
-			   										   ArrayList<PhotoData> previousArray) 
+			   										   ArrayList<PhotoData> filteredArray) 
 		   throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException {
 
 					String type="";
@@ -55,26 +56,27 @@ public class JSONParser {
 
 						String operator = entry.getKey();
 						Object value = entry.getValue();
-					
+						
 						if(operator.equals("type") || operator.equals("Type")) {
 							type = (String) value;
 							if(!(value.equals("and")) && !(value.equals("or"))) {
-								throw new FilterIllegalArgumentException("'and' o 'or' expected after 'type'");
+								throw new FilterIllegalArgumentException("insert 'and' or 'or' after 'type'");
 							}
 							continue;
 						}
 
-						filter = FilterService.instanceFilter(column, operator, value);
+						filter = FilterService.instanceFilter(name, operator, value);
+						
 						switch(type) {
 
 						case "and":
-							photoData = FilterService.runFilterAND(filter, previousArray);
+							photoData = FilterService.runMultipleFilterAnd(filter, filteredArray);
 							break;
 						case "or":
-							photoData = FilterService.runFilterOR(filter, previousArray);
+							photoData = FilterService.runMultipleFilterOr(filter, filteredArray);
 							break;
 						default:
-							photoData = FilterService.runFilterOR(filter, previousArray);	
+							photoData = FilterService.runSingleFilter(filter, filteredArray);	
 
 						}
 					}
