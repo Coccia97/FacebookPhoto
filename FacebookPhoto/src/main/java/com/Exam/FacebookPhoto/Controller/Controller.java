@@ -62,7 +62,7 @@ public class Controller {
 	public ArrayList<String> getDataWithPost(@RequestBody Object filter)
 			throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException {
 
-		return StringParser.getPhotoDataString(JSONParser.jsonParserColumn(filter));
+		return StringParser.getPhotoDataString(JSONParser.jsonParserName(filter));
 	}
 
 	/**
@@ -79,6 +79,6 @@ public class Controller {
 	public ArrayList<String> getStatsWithPost(@RequestBody Object filter)
 			throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException {
 
-		return StringParser.getStats(JSONParser.jsonParserColumn(filter));
+		return StringParser.getStats(JSONParser.jsonParserName(filter));
 	}
 }
