@@ -10,15 +10,12 @@ import java.util.ArrayList;
  * @author Andrea Marcheggiani
  * @author Francesco Columbaro
  * 
- * @param data l'array con le foto
- * @param id   sottosezione paging con vari dati contenuti nel json che a noi non serviranno
- * 
  */
 
 public class Photos {
 	public ArrayList<Data> data;
 	public Paging paging;
-
+	
 	public ArrayList<Data> getData() {
 		return data;
 	}

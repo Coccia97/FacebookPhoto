@@ -7,10 +7,6 @@ package com.Exam.FacebookPhoto.Model;
  * 
  * @author Andrea Marcheggiani
  * @author Francesco Columbaro
- * 
- * @param created_time   data di creazione della foto 
- * @param id rappresenta l'identificativo della nostra foto
- * 
  */
 
 public class Data {

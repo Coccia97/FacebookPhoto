@@ -6,7 +6,7 @@ import com.Exam.FacebookPhoto.Exceptions.FilterIllegalArgumentException;
 import com.Exam.FacebookPhoto.Exceptions.FilterNotFoundException;
 import com.Exam.FacebookPhoto.Exceptions.InternalGeneralException;
 import com.Exam.FacebookPhoto.service.JSONParser;
-import com.Exam.FacebookPhoto.service.StringParser;
+import com.Exam.FacebookPhoto.Database.*;
 
 import java.util.ArrayList;
 
@@ -22,36 +22,38 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Andrea Marcheggiani
  * @author Francesco Columbaro
  */
+
+
 @RestController
 public class Controller {
 	/**
 	 * Risponde alla richiesta GET /allphoto
 	 * 
-	 * @return un ArrayList<String> con tutti i dati relativi alle foto
+	 * @return un ArrayList di String con tutti i dati relativi alle foto
 	 * 
 	 */
 	@RequestMapping(value = "allphoto", method = RequestMethod.GET)
 	public ArrayList<String> getallphoto() {
 
-		return StringParser.getPhotoDataString(StringParser.DataConverter());
+		return Database.getPhotoDataString(Database.DataConverter());
 	}
 
 	/**
 	 * Risponde alla richiesta GET /photostats
 	 * 
-	 * @return un ArrayList<String> con tutti i dati relativi alle statistiche delle foto
+	 * @return un ArrayList di String con tutti i dati relativi alle statistiche delle foto
 	 */
 
 	@RequestMapping(value = "photostats", method = RequestMethod.GET)
 	public ArrayList<String> getphotostats() {
 
-		return StringParser.getStats(StringParser.DataConverter());
+		return Database.getStats(Database.DataConverter());
 	}
 
 	/**
 	 * Risponde alla richiesta POST /allphoto
 	 * @param filter contenente un JSON con i filtri da applicare 
-	 * @return un ArrayList<String> con tutti i dati relativi alle foto opportunamente filtrati
+	 * @return un ArrayList di String con tutti i dati relativi alle foto opportunamente filtrati
 	 * @throws InternalGeneralException       se vengono generati errori generali interni al server
 	 * @throws FilterNotFoundException        se vengono generati errori di Filtro non trovato.
 	 * @throws FilterIllegalArgumentException se vengono generati errori di parametro non valido in ingresso al filtro.
@@ -62,14 +64,14 @@ public class Controller {
 	public ArrayList<String> getDataWithPost(@RequestBody Object filter)
 			throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException {
 
-		return StringParser.getPhotoDataString(JSONParser.jsonParserName(filter));
+		return Database.getPhotoDataString(JSONParser.jsonParserName(filter));
 	}
 
 	/**
 	 * Risponde alla richiesta POST /photostats
 	 * 
 	 * @param filter contenente un JSON con i filtri da applicare 
-	 * @return un ArrayList<String> con tutti i dati relativi alle foto opportunamente filtrati
+	 * @return un ArrayList di String con tutti i dati relativi alle foto opportunamente filtrati
 	 * @throws InternalGeneralException       se vengono generati errori generali interni al server
 	 * @throws FilterNotFoundException        se vengono generati errori di Filtro non trovato.
 	 * @throws FilterIllegalArgumentException se vengono generati errori di parametro non valido in ingresso al filtro.
@@ -79,6 +81,6 @@ public class Controller {
 	public ArrayList<String> getStatsWithPost(@RequestBody Object filter)
 			throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException {
 
-		return StringParser.getStats(JSONParser.jsonParserName(filter));
+		return Database.getStats(JSONParser.jsonParserName(filter));
 	}
 }

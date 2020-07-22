@@ -1,16 +1,10 @@
 package com.Exam.FacebookPhoto.Exceptions;
 
-import java.time.Instant;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-
-import com.Exam.FacebookPhoto.Exceptions.FilterIllegalArgumentException;
-import com.Exam.FacebookPhoto.Exceptions.FilterNotFoundException;
-import com.Exam.FacebookPhoto.Exceptions.InternalGeneralException;
-import com.Exam.FacebookPhoto.Exceptions.ErrorFormat;
 
 /**
  * Rappresenta la classe in cui vengono gestiti gli errori generati da eventuali

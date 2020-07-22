@@ -1,5 +1,7 @@
 package com.Exam.FacebookPhoto.Model;
 
+import java.util.ArrayList;
+
 /**
  * 
  * classe con lo scopo di contare il numero di iterazioni di una certa string  o di un intero num tramite counter a fini statistici
@@ -9,15 +11,13 @@ package com.Exam.FacebookPhoto.Model;
  * @author Andrea Marcheggiani
  * @author Francesco Columbaro
  * 
- * @param string Stringa da considerare  
- * @param counter   numero di iterazioni della stringa 
- * 
  */
 public class Counter {
 	private String string;
 	private int counter;
 	private int num;
-
+	
+	
 	public Counter(String string, int counter) {
 		super();
 		this.string = string;
@@ -28,6 +28,26 @@ public class Counter {
 		this.num  = num;
 		this.counter = counter;
 	}
+	
+	/**
+	 * 
+	 * @param alc ArrayList di Counter contenente il giorno/mese/anno è il numero delle volte in cui è presente 
+	 * @return l'elemento con il parametro counter maggiore
+	 */
+	public static Counter ReturnMax(ArrayList<Counter> alc) {
+	
+		Counter temp = alc.get(0);
+		for (int i = 0; i < alc.size(); i++) {
+			if (alc.get(i).getCounter() > temp.getCounter())
+				temp = alc.get(i);
+		
+		
+
+	}
+		return temp;
+		}
+	
+
 	public String getString() {
 		return string;
 	}

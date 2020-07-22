@@ -4,6 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
+import com.Exam.FacebookPhoto.Database.Database;
 import com.Exam.FacebookPhoto.Exceptions.FilterIllegalArgumentException;
 import com.Exam.FacebookPhoto.Exceptions.FilterNotFoundException;
 import com.Exam.FacebookPhoto.Exceptions.InternalGeneralException;
@@ -18,7 +19,7 @@ import com.Exam.FacebookPhoto.util.varius.Filter;
  */
 public class FilterService {
 		
-		private static ArrayList<PhotoData> photos = StringParser.DataConverter();
+		private static ArrayList<PhotoData> photos = Database.DataConverter();
 		
 		private final static String path = "com.Exam.FacebookPhoto.util.filter.";  //package dei filtri
 		
@@ -28,7 +29,7 @@ public class FilterService {
 		 * inseriti tramite Postman
 		 * @param name campo corrispondente al nome del valore da filtrare (ex: Day o Month)
 		 * @param oper campo corrispondente a uno dei quattro operatori disponibili (ex: Follow)
-		 * @param param campo corrispondente al valore del parametro inserito in ingresso
+		 * @param parameter campo corrispondente al valore del parametro inserito in ingresso
 		 * @return l'oggetto Filter
 		 * @throws InternalGeneralException errore generico
 		 * @throws FilterIllegalArgumentException il parametro inserito non è compatibile col filtro
@@ -87,7 +88,7 @@ public class FilterService {
 			 * Metodo che scorre l'ArrayList PhotoData e restituisce un ArrayLIst formato da
 			 * elementi risultati positivi ad un singolo filtraggio
 			 * @param filtro selezionato
-			 * @param prevArray ArrayList PhotoData su cui eseguire il filtraggio
+			 * @param filteredArray ArrayList PhotoData su cui eseguire il filtraggio
 			 * @return ArrayList con i soli elementi filtrati
 			 */
 		
@@ -109,7 +110,7 @@ public class FilterService {
 		 * Metodo che scorre l'ArrayList PhotoData e restituisce un ArrayList formato da 
 		 * elementi risultati positivi ad almeno uno dei filtraggi, seguendo l'operatore OR
 		 * @param filtro selezionato
-		 * @param prevArray ArrayList PhotoData su cui eseguire il filtraggio
+		 * @param filteredArray ArrayList PhotoData su cui eseguire il filtraggio
 		 * @return ArrayList con i soli elementi filtrati
 		 */
 		public static ArrayList<PhotoData> runMultipleFilterOr(Filter filtro, ArrayList<PhotoData> filteredArray) {
@@ -131,7 +132,7 @@ public class FilterService {
 		 * Metodo che scorre l'ArrayList PhotoData e restituisce un ArrayList formato da
 		 * elementi risultati positivi a tutti i filtraggi inseriti, seguendo l'operatore AND
 		 * @param filtro selezionato
-		 * @param prevArray ArrayList PhotoData su cui eseguire il filtraggio
+		 * @param filteredArray ArrayList PhotoData su cui eseguire il filtraggio
 		 * @return ArrayList con i soli elementi filtrati
 		 */
 		public static ArrayList<PhotoData> runMultipleFilterAnd(Filter filtro, ArrayList<PhotoData> filteredArray) {

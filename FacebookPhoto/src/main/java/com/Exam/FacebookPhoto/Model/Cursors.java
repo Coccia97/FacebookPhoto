@@ -7,9 +7,6 @@ package com.Exam.FacebookPhoto.Model;
  * @author Andrea Marcheggiani
  * @author Francesco Columbaro
  * 
- * @param before   dati non utili per i nostri fini 
- * @param after   dati non utili per i nostri fini
- * 
  */
 public class Cursors {
 	private String before;

@@ -8,9 +8,6 @@ package com.Exam.FacebookPhoto.Model;
  * @author Andrea Marcheggiani
  * @author Francesco Columbaro
  * 
- * @param photos indica una sottoparte del JSON contenete l'array con le foto
- * @param id     indica l'id del nostro account facebook
- * 
  */
 
 public class Metadata {

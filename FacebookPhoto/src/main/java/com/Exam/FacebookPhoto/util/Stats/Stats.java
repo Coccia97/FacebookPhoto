@@ -148,13 +148,9 @@ public class Stats {
 		mc.add(new Counter("Ottobre", ott));
 		mc.add(new Counter("Novembre", nov));
 		mc.add(new Counter("Dicembre", dic));
-		Counter temp = mc.get(0);
-		for (int i = 0; i < mc.size() - 1; i++) {
-			if (mc.get(i).getCounter() > temp.getCounter())
-				temp = mc.get(i);
+		
 
-		}
-		return temp.getString();
+		return Counter.ReturnMax(mc).getString();
 	}
 	/**
 	 * 
@@ -214,13 +210,7 @@ public class Stats {
 		yc.add(new Counter(2019, diciannove));
 		yc.add(new Counter(2020, venti));
 
-		Counter temp1 = yc.get(0);
-		for (int i = 0; i < yc.size(); i++) {
-			if (yc.get(i).getCounter() > temp1.getCounter()) {
-				temp1 = yc.get(i);
-			}
-		}
-		return temp1.getNum();
+		return Counter.ReturnMax(yc).getNum();
 	}
 	/**
 	 * 
@@ -264,13 +254,7 @@ public class Stats {
 		yc.add(new Counter("Sabato", sab));
 		yc.add(new Counter("Domenica", dom));
 
-		Counter temp2 = yc.get(0);
-		for (int i = 0; i < yc.size(); i++) {
-			if (yc.get(i).getCounter() > temp2.getCounter()) {
-				temp2 = yc.get(i);
-			}
-		}
-		return temp2.getString();
+		return Counter.ReturnMax(yc).getString();
 	}
 
 }
