@@ -62,6 +62,8 @@ le richieste disponibili sono le seguenti
 ![](Secondografico.png)
 ## Model
 ![](model.png)
+## Database
+![](database.png)
 ## Service
 ![](service.png)
 ## Controller
