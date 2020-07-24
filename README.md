@@ -58,23 +58,25 @@ le richieste disponibili sono le seguenti
 |Nequal          |"non corrisponde a..."                      |{"Year":{"Nequal":2016}} / {"Dayname":{"Nequal":["lunedì"]}}     |
 
 # Struttura Programma 
-## Package 
+## Package Main
 ![](Secondografico.png)
-## Model
+## Package test
+![](test.png)
+## model
 ![](model.png)
-## Database
+## database
 ![](database.png)
-## Service
+## service
 ![](service.png)
-## Controller
+## controller
 ![](Controller.png)
-## Exception
+## exception
 ![](Exceptions.png)
-## Various
+## various
 ![](various.png)
-## Stats
+## stats
 ![](Stats.png)
-## Filter
+## filter
 ![](filter.png)
 # Diagramma delle sequenze
 ## GET/allphoto
@@ -104,11 +106,6 @@ con ad ogni suo elemento una statistica ottenuta tramite chiamata in Stats.
 ## Nota
 Abbiamo deciso, per facilitare la visualizzazione dei dati, di formattare le risposte delle quattro richieste disponibili come stringhe. Ciò non toglie che con
 una piccola modifica è possibile cambiare il formato dei dati esportati in un altro desiderato, ad esempio il JSON.
-## Generazione Javadoc
-Vista la presenza di una documentazione Javadoc non aggiornata e l'impossibilità di poterne caricare una nuova, si consiglia la generazione di un nuovo Javadoc attraverso i seguenti passi:
-* Su Eclipse, andare su Project -> Generate Javadoc.
-* Spuntare il relativo progetto di cui si vuole generare il Javadoc e verificare il percorso di destinazione dei file, poi cliccare su "Finish".
-* Cliccare su "Yes to all" nella successiva finestra popup.
 ## Autori
 **Andrea Marcheggiani** - [GitHub](https://github.com/Coccia97)
 
@@ -116,6 +113,7 @@ Vista la presenza di una documentazione Javadoc non aggiornata e l'impossibilit�
 * Stats
 * Model
 * Controller
+* test
 
 **Francesco Columbaro** - [GitHub](https://github.com/FrancescoColumb)
 
