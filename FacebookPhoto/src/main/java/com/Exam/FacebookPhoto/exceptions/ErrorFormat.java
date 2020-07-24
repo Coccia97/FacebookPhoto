@@ -12,37 +12,37 @@ import org.springframework.http.HttpStatus;
 
 public class ErrorFormat {
 	
-	private final String error;
-	private final String details;
-	private final HttpStatus http;
+	private final String Error;
+	private final String Details;
+	private final HttpStatus Http;
 	
-	public ErrorFormat(String error, String details, HttpStatus http) {
+	public ErrorFormat(String Error, String Details, HttpStatus Http) {
 		super();
 		
-		this.error = error;
-		this.details = details;
-		this.http = http;
+		this.Error = Error;
+		this.Details = Details;
+		this.Http = Http;
 	}
 
 	/**
 	 * @return the error
 	 */
 	public String getError() {
-		return error;
+		return Error;
 	}
 
 	/**
 	 * @return the errorMessage
 	 */
 	public String getDetails() {
-		return details;
+		return Details;
 	}
 
 	/**
 	 * @return the http
 	 */
 	public HttpStatus getHttp() {
-		return http;
+		return Http;
 	}
 
 

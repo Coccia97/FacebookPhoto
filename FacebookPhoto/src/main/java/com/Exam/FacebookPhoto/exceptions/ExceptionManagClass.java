@@ -25,13 +25,12 @@ public class ExceptionManagClass {
 	@ExceptionHandler(value = {InternalGeneralException.class})
  	public ResponseEntity<Object> handleInternalGeneralException(InternalGeneralException e){
 		
-		ErrorFormat errorFormat = new ErrorFormat(
+				ErrorFormat errorFormat = new ErrorFormat(
 				
-				e.getClass().getCanonicalName(),
+				e.getClass().getSimpleName(),
 				e.getMessage(),
 				HttpStatus.INTERNAL_SERVER_ERROR
 				);
-		
 		return new ResponseEntity<>(errorFormat, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
@@ -45,13 +44,12 @@ public class ExceptionManagClass {
 	@ExceptionHandler(value = {FilterIllegalArgumentException.class})
  	public ResponseEntity<Object> handleFilterIllegalArgumentException(FilterIllegalArgumentException e){
 		
-		ErrorFormat errorFormat = new ErrorFormat(
+				ErrorFormat errorFormat = new ErrorFormat(
 				
-				e.getClass().getCanonicalName(),
+				e.getClass().getSimpleName(),
 				e.getMessage(),
 				HttpStatus.BAD_REQUEST
 				);
-		
 		return new ResponseEntity<>(errorFormat, HttpStatus.BAD_REQUEST);
 	}
 	
@@ -64,13 +62,12 @@ public class ExceptionManagClass {
 	@ExceptionHandler(value = {FilterNotFoundException.class})
  	public ResponseEntity<Object> handleFilterNotFoundException(FilterNotFoundException e){
 		
-		ErrorFormat errorFormat = new ErrorFormat(
+				ErrorFormat errorFormat = new ErrorFormat(
 				
-				e.getClass().getCanonicalName(),
+				e.getClass().getSimpleName(),
 				e.getMessage(),
 				HttpStatus.BAD_REQUEST
 				);
-		
 		return new ResponseEntity<>(errorFormat, HttpStatus.BAD_REQUEST);
 		
 	}
