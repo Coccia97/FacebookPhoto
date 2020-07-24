@@ -37,10 +37,11 @@ public class JSONParser {
 				    String name = entry.getKey();
 				    Object filterParam = entry.getValue();
 				    try {
-						filterArray = jsonParserOperator(name, filterParam, prevArray);
+						
+				    	filterArray = jsonParserOperator(name, filterParam, prevArray);
 					} catch (  SecurityException e) {
 
-						throw new InternalGeneralException("Error in parsing I/O operation");
+						throw new InternalGeneralException("Invalid I/O operation");
 						
 					} 
 				    
@@ -73,8 +74,10 @@ public class JSONParser {
 						String operator = entry.getKey();
 						Object value = entry.getValue();
 						
-						if(operator.equals("type") || operator.equals("Type")) {
+						if(operator.equals("type")) {
+							
 							type = (String) value;
+							
 							if(!(value.equals("and")) && !(value.equals("or"))) {
 								throw new FilterIllegalArgumentException("insert 'and' or 'or' after 'type'");
 							}
@@ -96,6 +99,7 @@ public class JSONParser {
 
 						}
 					}
+					
 					return photoData;	
 	}
 

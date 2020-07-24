@@ -21,12 +21,11 @@ public class FilterService {
 		
 		private static ArrayList<PhotoData> photos = Database.DataConverter();
 		
-		private final static String path = "com.Exam.FacebookPhoto.util.filter.";  //package dei filtri
-		
 		/**
 		 * Istanzia un oggetto Filter prendendo come modello uno dei filtri presenti
 		 * nel package com.Exam.FacebookPhoto.util.filter. e utilizzando i parametri
 		 * inseriti tramite Postman
+		 * @param T tipo classe generico
 		 * @param name campo corrispondente al nome del valore da filtrare (ex: Day o Month)
 		 * @param oper campo corrispondente a uno dei quattro operatori disponibili (ex: Follow)
 		 * @param parameter campo corrispondente al valore del parametro inserito in ingresso
@@ -37,18 +36,14 @@ public class FilterService {
 		 */
 		
 		
-		public static Filter instanceFilter(String name, String oper, Object parameter)
+		public static <T> Filter instanceFilter(String name, String oper, Object parameter)
 			throws InternalGeneralException, FilterIllegalArgumentException, FilterNotFoundException {
 			
-			Filter filtro = null;
-			String NameFilter = new String("Filter"+name+oper);
-			String ClassNameFilter = path.concat(NameFilter);
-			
-			
-			Class<?> clss = null;
+			Filter filter = null;
+			Class<T> clss = null;
 			
 			try {
-				clss = Class.forName(ClassNameFilter);  //selezione della classe
+				clss = (Class<T>) Class.forName("com.Exam.FacebookPhoto.util.filter.Filter" + name + oper);  //selezione della classe
 			} 
 			catch (ClassNotFoundException e) {  //il nome del filtro non è valido
 				
@@ -56,32 +51,32 @@ public class FilterService {
                         oper +" doesn't exist");
 			}
 			
-			Constructor<?> cstr = null;
+			Constructor<T> cstr = null;
 			
 			try {
 				cstr = clss.getDeclaredConstructor(Object.class);  //selezione del costruttore
 			} 
-			catch (NoSuchMethodException | SecurityException e) {  //
+			catch (NoSuchMethodException | SecurityException e) {  
 				e.printStackTrace();
 		    	
-				throw new InternalGeneralException("common error");
+				throw new InternalGeneralException("Common error");
 			}
 			
 			try {
-				filtro =(Filter)cstr.newInstance(parameter);  //oggetto filtro
+				filter =(Filter)cstr.newInstance(parameter);  //oggetto filtro
 			} 
 			catch (IllegalArgumentException | IllegalAccessException | InstantiationException e) {
 				e.printStackTrace();
 				
-				throw new InternalGeneralException("common error");
+				throw new InternalGeneralException("Common error");
 			} 
 			catch (InvocationTargetException e) {
 				
 				throw new FilterIllegalArgumentException(e.getTargetException().getMessage()
-		   				+ " Expected in "+name);
+		   				+ " Expected in " + name);
 			}
 			
-			return filtro;
+			return filter;
 		}	
 			
 			/**
@@ -96,15 +91,14 @@ public class FilterService {
 			
 			ArrayList<PhotoData> ArrayFilter = new ArrayList<PhotoData>();
 			
-			for (PhotoData photodata : photos) {  //filtra l'ArrayList PhotoData, non filtrato
+			for (PhotoData photodata : photos) {  //filtra l'ArrayList PhotoData
 				
-				if (filtro.filter(photodata))
-				ArrayFilter.add(photodata);
+					if (filtro.filter(photodata))
+						ArrayFilter.add(photodata);
 			}
 			
-			filteredArray.addAll(ArrayFilter);
-			return filteredArray;  //ArrayList che eventualmente verrà utilizzato dall'operatore AND
-		}
+			return ArrayFilter;  //ArrayList che eventualmente verrà utilizzato dall'operatore AND
+	}
 		
 		/**
 		 * Metodo che scorre l'ArrayList PhotoData e restituisce un ArrayList formato da 
@@ -117,34 +111,31 @@ public class FilterService {
 			
 			ArrayList<PhotoData> ArrayFilter = new ArrayList<PhotoData>();
 			
-			for (PhotoData photodata : photos) {  //filtra l'ArrayList PhotoData, non filtrato
+			for (PhotoData photodata : photos) {  //filtra l'ArrayList PhotoData
 				
-				if (filtro.filter(photodata))
-				ArrayFilter.add(photodata);
+					if (filtro.filter(photodata))
+						ArrayFilter.add(photodata);
 			}
 			
-			filteredArray.addAll(ArrayFilter);
-			return filteredArray;  //ArrayList che eventualmente verrà utilizzato dall'operatore AND
-				
-		}
+			return ArrayFilter;  //ArrayList che eventualmente verrà utilizzato dall'operatore AND
+}
 		
 		/**
-		 * Metodo che scorre l'ArrayList PhotoData e restituisce un ArrayList formato da
+		 * Metodo che scorre l'ArrayList ArrayFIlter e restituisce un ArrayList formato da
 		 * elementi risultati positivi a tutti i filtraggi inseriti, seguendo l'operatore AND
 		 * @param filtro selezionato
 		 * @param filteredArray ArrayList PhotoData su cui eseguire il filtraggio
 		 * @return ArrayList con i soli elementi filtrati
 		 */
-		public static ArrayList<PhotoData> runMultipleFilterAnd(Filter filtro, ArrayList<PhotoData> filteredArray) {
+		public static ArrayList<PhotoData> runMultipleFilterAnd(Filter filtro, ArrayList<PhotoData> ArrayFilter) {
 			
-			ArrayList<PhotoData> ArrayFilter = new ArrayList<PhotoData>();
+			ArrayList<PhotoData> ArrayAnd = new ArrayList<PhotoData>();
 			
-			for (PhotoData photodata : filteredArray) {  //filtra l'ArrayList già filtrato in precedenza
-				
-				if (filtro.filter(photodata))
-				ArrayFilter.add(photodata);
+			for (PhotoData photodata : ArrayFilter) {  /*A differenza degli altri due filtri, 
+				                                              filtra l'ArrayList già filtrato in precedenza*/
+					if (filtro.filter(photodata))
+						ArrayAnd.add(photodata);
 			}
-			return ArrayFilter;
+			return ArrayAnd;
 		}
-		
 }
