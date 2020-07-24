@@ -9,7 +9,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.Exam.FacebookPhoto.model.Counter;
-
+/**
+ * 
+ * classe di test della classe Counter
+ * 
+ * @author Andrea Marcheggiani
+ * @author Francesco Columbaro
+ *
+ */
 class CounterTest {
 	ArrayList<Counter> alc = new ArrayList<Counter>();
 	Counter c1=null;

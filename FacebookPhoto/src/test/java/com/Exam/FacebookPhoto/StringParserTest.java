@@ -17,7 +17,14 @@ import com.Exam.FacebookPhoto.model.PhotoData;
 import com.Exam.FacebookPhoto.service.StringParser;
 
 import org.junit.jupiter.api.Assertions;
-
+/**
+ * 
+ * classe di test della classe StringParser, in particolare del metodo StringToPhotos
+ * 
+ * @author Andrea Marcheggiani
+ * @author Francesco Columbaro
+ *
+ */
 public class StringParserTest {
 	Metadata metadata= new Metadata();
 
@@ -57,7 +64,7 @@ public class StringParserTest {
 	}
 
 	@Test
-	public void test() {
+	public void testStringToPhotos() {
 		assertEquals("3120253634680310", metadata.getId());
 		assertEquals("2018-11-28T23:00:16+0000", metadata.getPhotosObject().data.get(0).getCreated_time());
 		assertEquals("2091266917588916", metadata.getPhotosObject().data.get(0).getId());

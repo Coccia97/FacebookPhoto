@@ -9,7 +9,14 @@ import org.junit.Before;
 import org.junit.Test;
 import com.Exam.FacebookPhoto.model.PhotoData;
 import org.junit.jupiter.api.Assertions;
-
+/**
+ * 
+ * classe di test della classe PhotoData
+ * 
+ * @author Andrea Marcheggiani
+ * @author Francesco Columbaro
+ *
+ */
 public class PhotoDataTest {
 
 	private PhotoData pd1 = null;
