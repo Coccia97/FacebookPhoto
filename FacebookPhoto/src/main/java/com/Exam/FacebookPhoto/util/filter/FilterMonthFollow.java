@@ -6,7 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-import com.Exam.FacebookPhoto.Model.PhotoData;
+import com.Exam.FacebookPhoto.model.PhotoData;
 import com.Exam.FacebookPhoto.util.varius.Filter;
 import com.Exam.FacebookPhoto.util.varius.FilterString;
 

@@ -1,6 +1,6 @@
 package com.Exam.FacebookPhoto.util.varius;
 
-import com.Exam.FacebookPhoto.Model.PhotoData;
+import com.Exam.FacebookPhoto.model.PhotoData;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**

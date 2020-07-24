@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import com.Exam.FacebookPhoto.Model.PhotoData;
+import com.Exam.FacebookPhoto.model.PhotoData;
 import org.junit.jupiter.api.Assertions;
 
 public class PhotoDataTest {

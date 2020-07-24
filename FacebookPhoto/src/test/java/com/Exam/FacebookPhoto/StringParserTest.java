@@ -12,8 +12,8 @@ import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
-import com.Exam.FacebookPhoto.Model.Metadata;
-import com.Exam.FacebookPhoto.Model.PhotoData;
+import com.Exam.FacebookPhoto.model.Metadata;
+import com.Exam.FacebookPhoto.model.PhotoData;
 import com.Exam.FacebookPhoto.service.StringParser;
 
 import org.junit.jupiter.api.Assertions;

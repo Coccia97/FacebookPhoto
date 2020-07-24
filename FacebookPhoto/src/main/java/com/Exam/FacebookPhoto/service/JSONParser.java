@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.Exam.FacebookPhoto.Exceptions.FilterIllegalArgumentException;
-import com.Exam.FacebookPhoto.Exceptions.FilterNotFoundException;
-import com.Exam.FacebookPhoto.Exceptions.InternalGeneralException;
-import com.Exam.FacebookPhoto.Model.PhotoData;
+import com.Exam.FacebookPhoto.exceptions.FilterIllegalArgumentException;
+import com.Exam.FacebookPhoto.exceptions.FilterNotFoundException;
+import com.Exam.FacebookPhoto.exceptions.InternalGeneralException;
+import com.Exam.FacebookPhoto.model.PhotoData;
 import com.Exam.FacebookPhoto.util.varius.Filter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

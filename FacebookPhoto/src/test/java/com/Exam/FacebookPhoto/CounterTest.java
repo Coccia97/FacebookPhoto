@@ -8,7 +8,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.Exam.FacebookPhoto.Model.Counter;
+import com.Exam.FacebookPhoto.model.Counter;
 
 class CounterTest {
 	ArrayList<Counter> alc = new ArrayList<Counter>();

@@ -1,6 +1,6 @@
 package com.Exam.FacebookPhoto.service;
 
-import com.Exam.FacebookPhoto.Model.Metadata;
+import com.Exam.FacebookPhoto.model.Metadata;
 import com.google.gson.Gson;
 
 /**

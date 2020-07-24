@@ -4,11 +4,11 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
-import com.Exam.FacebookPhoto.Database.Database;
-import com.Exam.FacebookPhoto.Exceptions.FilterIllegalArgumentException;
-import com.Exam.FacebookPhoto.Exceptions.FilterNotFoundException;
-import com.Exam.FacebookPhoto.Exceptions.InternalGeneralException;
-import com.Exam.FacebookPhoto.Model.PhotoData;
+import com.Exam.FacebookPhoto.database.Database;
+import com.Exam.FacebookPhoto.exceptions.FilterIllegalArgumentException;
+import com.Exam.FacebookPhoto.exceptions.FilterNotFoundException;
+import com.Exam.FacebookPhoto.exceptions.InternalGeneralException;
+import com.Exam.FacebookPhoto.model.PhotoData;
 import com.Exam.FacebookPhoto.util.varius.Filter;
 
 /**
