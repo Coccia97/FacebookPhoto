@@ -13,6 +13,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JSONParser {
 	
+	/**
+	 * Effettua il parsing relativo all'elemento "name" e al filtro da applicare
+	 * @param filter JSON con le relative informazioni riguardo il filtro
+	 * @return ArrayList PhotoData filtrato
+	 * @throws InternalGeneralException errori generali interni
+	 * @throws FilterNotFoundException il filtro non è stato trovato
+	 * @throws FilterIllegalArgumentException parametro del filtro non valido
+	 */
+	
 	public static ArrayList<PhotoData> jsonParserName(Object filter) 
 			throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException{
 				
@@ -41,11 +50,18 @@ public class JSONParser {
 				return filterArray;		
 			}
 	
-	
-	public static ArrayList<PhotoData> jsonParserOperator(String name, 
-			   										   Object filterParam, 
-			   										   ArrayList<PhotoData> filteredArray) 
-		   throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException {
+		/**
+		 * Effettua il parsing relativo all'elemento "operator" e al filtro da applicare
+		 * @param name campo su cui si effettua il filtraggio
+		 * @param filterParam parametro relativo al filtraggio
+		 * @param filteredArray ArrayList PhotoData relativo ai filtraggi già eseguiti
+		 * @return ArrayList PhotoData filtrato
+		 * @throws InternalGeneralException  errori generali interni
+		 * @throws FilterNotFoundException il filtro non è stato trovato
+		 * @throws FilterIllegalArgumentException parametro del filtro non valido
+		 */
+	public static ArrayList<PhotoData> jsonParserOperator(String name, Object filterParam, ArrayList<PhotoData> filteredArray) 
+			throws InternalGeneralException, FilterNotFoundException, FilterIllegalArgumentException {
 
 					String type="";
 					Filter filter;
