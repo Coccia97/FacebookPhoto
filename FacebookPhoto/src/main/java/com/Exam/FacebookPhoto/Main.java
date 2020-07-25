@@ -17,7 +17,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Main {
 
 	public static void main(String[] args) {
-		String url = "https://graph.facebook.com/v7.0/me?fields=photos&access_token=EAAH51tUzLoUBAAe0nATma9gI0evkhPZAI9sFe1jgm36MKphBqz0ktOBp1wWbXfURg8DXI2YZBSPHC3q8IaHNcaD5z1KHW8EWq5nWRWZBNzvlVSyrQGcZCoKjLwZAmLmF4GshzoZBoxFJrz1ShZACmuqLS3uhcAZCF9yJA28IBykj4rwA97Go3ZAYEwmJus8aorXFCEfZC3kGegdBoB3Y3fownBDxWiOZAeG8b4lZBmCEMIFIogZDZD";
+		String url = "https://graph.facebook.com/v7.0/me?fields=photos&access_token=EAAH51tUzLoUBAMQpwOPla8JAuSJOUFfZB8LrraBcIvRKCnPW1nbn5AiPInfHVSTZBRbVVKVben5f2WK64IZANlBWysY9UMOkyz9d6mgkN4w87hvonA6jty4ZBqiu3a6q2uu5ZBogFb0PZAHSoT8obnrolBssShR6kwerqZBMD5gSBMC0YVyrtF2DRvNKZCFJku3IRG5hGvKSUNHgNZAJY6uPTaXINIr4XvebriQlGnq1BngZDZD";
 		Database.JsonToMetadata(url);
 		SpringApplication.run(Main.class, args);
 

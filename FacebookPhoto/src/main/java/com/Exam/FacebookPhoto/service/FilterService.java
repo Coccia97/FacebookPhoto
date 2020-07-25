@@ -25,7 +25,7 @@ public class FilterService {
 		 * Istanzia un oggetto Filter prendendo come modello uno dei filtri presenti
 		 * nel package com.Exam.FacebookPhoto.util.filter. e utilizzando i parametri
 		 * inseriti tramite Postman
-		 * @param T tipo classe generico
+		 * @param <T> tipo classe generico
 		 * @param name campo corrispondente al nome del valore da filtrare (ex: Day o Month)
 		 * @param oper campo corrispondente a uno dei quattro operatori disponibili (ex: Follow)
 		 * @param parameter campo corrispondente al valore del parametro inserito in ingresso
@@ -34,6 +34,7 @@ public class FilterService {
 		 * @throws FilterIllegalArgumentException il parametro inserito non è compatibile col filtro
 		 * @throws FilterNotFoundException il filtro non è presente nel package Filter
 		 */
+	
 		
 		
 		public static <T> Filter instanceFilter(String name, String oper, Object parameter)
@@ -124,7 +125,7 @@ public class FilterService {
 		 * Metodo che scorre l'ArrayList ArrayFIlter e restituisce un ArrayList formato da
 		 * elementi risultati positivi a tutti i filtraggi inseriti, seguendo l'operatore AND
 		 * @param filtro selezionato
-		 * @param filteredArray ArrayList PhotoData su cui eseguire il filtraggio
+		 * @param ArrayFilter ArrayList PhotoData su cui eseguire il filtraggio
 		 * @return ArrayList con i soli elementi filtrati
 		 */
 		public static ArrayList<PhotoData> runMultipleFilterAnd(Filter filtro, ArrayList<PhotoData> ArrayFilter) {

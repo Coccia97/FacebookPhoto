@@ -10,7 +10,14 @@ import com.Exam.FacebookPhoto.exceptions.InternalGeneralException;
 import com.Exam.FacebookPhoto.model.PhotoData;
 import com.Exam.FacebookPhoto.util.varius.Filter;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+/**
+ * classe per il Parsing dei nomi dei filtri 
+ *
+ * 
+ * @author Andrea Marcheggiani
+ * @author Francesco Columbaro
+ *
+ */
 public class JSONParser {
 	
 	/**
